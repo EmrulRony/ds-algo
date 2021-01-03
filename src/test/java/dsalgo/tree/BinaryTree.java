@@ -14,51 +14,71 @@ public class BinaryTree {
 
     public void insert(int value) {
         TreeNode newNode = new TreeNode(value);
-        if (root == null){
+        if (root == null) {
             root = newNode;
             return;
         } else {
-            inserNewTreeNode(root,newNode);
+            insertNewTreeNode(root, newNode);
         }
     }
-    private TreeNode inserNewTreeNode(TreeNode root, TreeNode newNode){
-        if (root == null){
+
+    private TreeNode insertNewTreeNode(TreeNode root, TreeNode newNode) {
+        if (root == null) {
             return newNode;
         }
-        if (newNode.value < root.value){
-            root.left = inserNewTreeNode(root.left, newNode);
+        if (newNode.value < root.value) {
+            root.left = insertNewTreeNode(root.left, newNode);
         }
-        if (newNode.value >= root.value){
-            root.right = inserNewTreeNode(root.right, newNode);
+        if (newNode.value >= root.value) {
+            root.right = insertNewTreeNode(root.right, newNode);
         }
         return root;
     }
 
-     public void traverseLevelOrder(TreeNode root){
-        if (root == null){
-            System.out.println("Tree is empty");
+    public void traverseLevelOrder(TreeNode root) {
+        if (root == null) {
+            System.out.println("Tree is empty"+ " ");
             return;
         }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             TreeNode tempNode = queue.poll();
-            System.out.println(tempNode.value);
-            if (tempNode.left != null){
+            System.out.print(tempNode.value + " ");
+            if (tempNode.left != null) {
                 queue.add(tempNode.left);
             }
-            if (tempNode.right != null){
+            if (tempNode.right != null) {
                 queue.add(tempNode.right);
             }
         }
-     }
+        System.out.println();
+    }
 
-     @Test
-    public void insertionTest(){
-        BinaryTree bt = new BinaryTree();
-        int[] nums = {100,20,500,10,30,40};
-        for (Integer i : nums){
-            bt.insert(i);
+    public void traverseInOrder(TreeNode root) {
+        if (root == null) {
+            return;
         }
-     }
+        traverseInOrder(root.left);
+        System.out.print(root.value+ " ");
+        traverseInOrder(root.right);
+    }
+
+    public void traversePreOrder(TreeNode root){
+        if (root == null){
+            return;
+        }
+        System.out.print(root.value+ " ");
+        traversePreOrder(root.left);
+        traversePreOrder(root.right);
+    }
+
+    public void traversePostOrder(TreeNode root){
+        if(root == null){
+            return;
+        }
+        traversePostOrder(root.left);
+        traversePostOrder(root.right);
+        System.out.print(root.value+ " ");
+    }
 }

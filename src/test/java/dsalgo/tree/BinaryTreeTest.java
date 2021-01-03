@@ -7,6 +7,20 @@ public class BinaryTreeTest {
         for (Integer i : nums){
             bt.insert(i);
         }
+        System.out.println("Traversing level order");
+        System.out.println();
         bt.traverseLevelOrder(bt.root);
+        System.out.println("Traversing in-order");
+
+        bt.traverseInOrder(bt.root);
+        System.out.println();
+        System.out.println("Traversing post-order");
+
+        bt.traversePostOrder(bt.root);
+        System.out.println();
+        System.out.println("Traversing pre-order");
+
+        bt.traversePreOrder(bt.root);
+        System.out.println();
     }
 }

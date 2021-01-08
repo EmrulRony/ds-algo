@@ -81,4 +81,28 @@ public class BinaryTree {
         traversePostOrder(root.right);
         System.out.print(root.value+ " ");
     }
+
+    public boolean search(int value){
+        if (root == null){
+            return false;
+        }
+        else if (root.value == value){
+            return true;
+        }
+        return find(root, value);
+    }
+
+    private boolean find(TreeNode root, int value) {
+        if (root == null){
+            return false;
+        }
+        else if (root.value == value){
+            return true;
+        }
+        if (value<root.value){
+            return find(root.left,value);
+        } else{
+            return find(root.right,value);
+        }
+    }
 }

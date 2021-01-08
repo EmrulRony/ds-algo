@@ -22,5 +22,9 @@ public class BinaryTreeTest {
 
         bt.traversePreOrder(bt.root);
         System.out.println();
+
+        System.out.println("Searching a node in binary tree");
+        boolean result = bt.search(5000);
+        System.out.println(result);
     }
 }

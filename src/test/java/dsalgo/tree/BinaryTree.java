@@ -2,6 +2,7 @@ package dsalgo.tree;
 
 import dsalgo.tree.node.TreeNode;
 import org.junit.Test;
+import sun.reflect.generics.tree.Tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -104,5 +105,16 @@ public class BinaryTree {
         } else{
             return find(root.right,value);
         }
+    }
+
+    public void mirrorOfTree(TreeNode root){
+        if (root == null) {
+            return;
+        }
+        TreeNode tempNode = root.right;
+        root.right = root.left;
+        root.left = tempNode;
+        mirrorOfTree(root.left);
+        mirrorOfTree(root.right);
     }
 }

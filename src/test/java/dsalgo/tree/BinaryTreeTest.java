@@ -26,5 +26,8 @@ public class BinaryTreeTest {
         System.out.println("Searching a node in binary tree");
         boolean result = bt.search(5000);
         System.out.println(result);
+
+        bt.mirrorOfTree(bt.root);
+        bt.traverseLevelOrder(bt.root);
     }
 }

@@ -1,4 +1,4 @@
-package dsalgo.tree;
+package dsalgo.tree.binary_tree;
 
 import dsalgo.tree.node.TreeNode;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package dsalgo.tree;
+package dsalgo.tree.binary_tree;
 
 public class BinaryTreeTest {
     public static void main(String[] args) {

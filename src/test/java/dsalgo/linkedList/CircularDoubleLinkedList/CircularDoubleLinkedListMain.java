@@ -21,6 +21,5 @@ public class CircularDoubleLinkedListMain {
         // printing values of linked list
         System.out.println("Printing the list");
         cdll.printList();
-
     }
 }

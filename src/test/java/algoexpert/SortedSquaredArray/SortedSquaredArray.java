@@ -1,4 +1,4 @@
-package algoexpert;
+package algoexpert.SortedSquaredArray;
 
 class Program {
 

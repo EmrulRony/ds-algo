@@ -1,9 +1,13 @@
 package algoexpert.twoNumberSum;
 
-import java.util.Arrays;
+import org.junit.Test;
+
 import java.util.HashSet;
 
-class Program {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class TwoNumberSum {
     public static int[] twoNumberSum(int[] array, int targetSum) {
         // Write your code here.
         HashSet<Integer> hastTable = new HashSet<>();
@@ -16,12 +20,20 @@ class Program {
         }
         return new int[] {};
     }
-}
 
-
-public class TwoNumberSum {
-    public static void main(String[] args) {
-        int[] result = Program.twoNumberSum(new int[]{3, 5, -4, 8, 11, 1, -1, 6}, 10);
-        System.out.println(Arrays.toString(result));
+    @Test
+    public void TestCase1() {
+        int[] output = twoNumberSum(new int[] {3, 5, -4, 8, 11, 1, -1, 6}, 10);
+        assertEquals(2, output.length);
+        assertTrue(contains(output, -1));
+        assertTrue(contains(output, 11));
     }
+
+    public boolean contains(int[] output, int val) {
+        for (var el : output) {
+            if (el == val) return true;
+        }
+        return false;
+    }
+
 }

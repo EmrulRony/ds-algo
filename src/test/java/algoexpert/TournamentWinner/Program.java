@@ -1,11 +1,16 @@
 package algoexpert.TournamentWinner;
 
 
+import org.junit.Test;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-class Program {
+import static org.junit.Assert.assertSame;
+
+public class Program {
 
     public String tournamentWinner(
             ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results)
@@ -49,7 +54,19 @@ class Program {
         }
         return grandWinner;
     }
-}
 
-public class TournamentWinner {
+    @Test
+    public void test() {
+        ArrayList<ArrayList<String>> competitions = new ArrayList<ArrayList<String>>();
+        ArrayList<String> competition1 = new ArrayList<String>(Arrays.asList("HTML", "C#"));
+        ArrayList<String> competition2 = new ArrayList<String>(Arrays.asList("C#", "Python"));
+        ArrayList<String> competition3 = new ArrayList<String>(Arrays.asList("Python", "HTML"));
+        competitions.add(competition1);
+        competitions.add(competition2);
+        competitions.add(competition3);
+        ArrayList<Integer> results = new ArrayList<Integer>(Arrays.asList(0, 0, 1));
+        String expected = "Python";
+        var actual = new Program().tournamentWinner(competitions, results);
+        assertSame(expected, actual);
+    }
 }

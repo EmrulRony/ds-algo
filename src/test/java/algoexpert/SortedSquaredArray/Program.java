@@ -1,6 +1,11 @@
 package algoexpert.SortedSquaredArray;
 
-class Program {
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class Program {
 
     public int[] sortedSquaredArray(int[] array) {
         // Write your code here.
@@ -18,10 +23,14 @@ class Program {
         }
         return result;
     }
-}
 
-public class SortedSquaredArray {
-    public static void main(String[] args) {
-
+    @Test
+    public void test() {
+        var input = new int[] {1, 2, 3, 5, 6, 8, 9};
+        var expected = new int[] {1, 4, 9, 25, 36, 64, 81};
+        var actual = new Program().sortedSquaredArray(input);
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], actual[i]);
+        }
     }
 }

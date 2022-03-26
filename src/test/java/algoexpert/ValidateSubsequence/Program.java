@@ -1,9 +1,13 @@
 package algoexpert.ValidateSubsequence;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.List;
 
-class Program {
+import static org.junit.Assert.assertTrue;
+
+public class Program {
     public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
         // Write your code here.
         int arrIndex = 0;
@@ -16,11 +20,11 @@ class Program {
         }
         return sequenceIndex == sequence.size();
     }
-}
 
-public class ValidateSubsequence {
-    public static void main(String[] args) {
-        boolean validSubsequence = Program.isValidSubsequence(Arrays.asList(5, 1, 22, 25, 6, -1, 8, 10), Arrays.asList(1, 6, -1, -1));
-        System.out.println(validSubsequence);
+    @Test
+    public void TestCase1() {
+        var array = Arrays.asList(5, 1, 22, 25, 6, -1, 8, 10);
+        var sequence = Arrays.asList(1, 6, -1, 10);
+        assertTrue(Program.isValidSubsequence(array, sequence));
     }
 }

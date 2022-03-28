@@ -1,4 +1,4 @@
-package algoexpert.SortedSquaredArray;
+package algoexpert.array.SortedSquaredArray;
 
 import org.junit.Test;
 

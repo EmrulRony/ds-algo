@@ -1,4 +1,4 @@
-package algoexpert.ValidateSubsequence;
+package algoexpert.array.ValidateSubsequence;
 
 import org.junit.Test;
 

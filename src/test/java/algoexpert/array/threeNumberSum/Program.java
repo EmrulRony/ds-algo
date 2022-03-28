@@ -1,4 +1,4 @@
-package algoexpert.threeNumberSum;
+package algoexpert.array.threeNumberSum;
 
 import org.junit.Test;
 

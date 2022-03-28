@@ -1,4 +1,4 @@
-package algoexpert.TournamentWinner;
+package algoexpert.array.TournamentWinner;
 
 
 import org.junit.Test;

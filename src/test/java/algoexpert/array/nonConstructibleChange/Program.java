@@ -1,4 +1,4 @@
-package algoexpert.nonConstructibleChange;
+package algoexpert.array.nonConstructibleChange;
 
 import org.junit.Test;
 

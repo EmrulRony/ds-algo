@@ -1,7 +1,6 @@
 package algoexpert.string.firstNonRepeatingCharacter;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 class Program {

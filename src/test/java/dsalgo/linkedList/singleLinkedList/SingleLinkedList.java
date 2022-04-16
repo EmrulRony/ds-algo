@@ -6,7 +6,7 @@ public class SingleLinkedList {
     Node head, tail;
     int size;
 
-    class Node {
+    static class Node {
         Node next;
         Object data;
 

@@ -16,7 +16,6 @@ public class Program {
         int[] currentInterval = intervals[0];
         result.add(currentInterval);
         for (int[] interval : intervals) {
-            int currentIntervalStart = currentInterval[0];
             int currentIntervalEnd = currentInterval[1];
             int nextIntervalStart = interval[0];
             int nextIntervalEnd = interval[1];

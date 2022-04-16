@@ -62,4 +62,11 @@ public class LinkedListStackImplementation{
         return this.size;
     }
 
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
+    public void setTail(Node tail) {
+        this.tail = tail;
+    }
 }

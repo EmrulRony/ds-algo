@@ -1,4 +1,4 @@
-package DS_QUEUE.LinkedListImplementation;
+package dsalgo.Queue.LinkedListImplementation;
 
 public class LinkedListStackImplementation{
     Node head;

@@ -1,4 +1,4 @@
-package algoexpert.mergeOverlappingIntervals;
+package algoexpert.array.mergeOverlappingIntervals;
 
 import org.junit.Test;
 

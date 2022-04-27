@@ -33,6 +33,6 @@ public class Program {
         if (pointerOne == null) {
             prevNode.next = pointerTwo;
         }
-        return (headOne.value < headTwo.value) ? pointerOne : pointerTwo;
+        return (headOne.value < headTwo.value) ? headOne : headTwo;
     }
 }

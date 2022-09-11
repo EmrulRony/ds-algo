@@ -1,118 +1,136 @@
 package dsalgo.tree.binary_tree;
 
-import dsalgo.tree.node.TreeNode;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
-// bfs --> level order
-// dfs --> inorder, preorder, postorder
-
 public class BinaryTree {
-    TreeNode root;
+    private BinaryTreeNode root;
 
-    public void insert(int value) {
-        TreeNode newNode = new TreeNode(value);
-        if (root == null) {
-            root = newNode;
-            return;
+    private void insert(int value) {
+        if (root != null) {
+            Queue<BinaryTreeNode> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                BinaryTreeNode currentNode = queue.remove();
+                if (currentNode.getLeftNode() == null) {
+                    currentNode.setLeftNode(new BinaryTreeNode(value));
+                    break;
+                } else if (currentNode.getRightNode() == null) {
+                    currentNode.setRightNode(new BinaryTreeNode(value));
+                    break;
+                } else {
+                    queue.add(currentNode.getLeftNode());
+                    queue.add(currentNode.getRightNode());
+                }
+            }
         } else {
-            insertNewTreeNode(root, newNode);
+            root = new BinaryTreeNode(value);
         }
     }
 
-    private TreeNode insertNewTreeNode(TreeNode root, TreeNode newNode) {
-        if (root == null) {
-            return newNode;
-        }
-        if (newNode.value < root.value) {
-            root.left = insertNewTreeNode(root.left, newNode);
-        }
-        if (newNode.value >= root.value) {
-            root.right = insertNewTreeNode(root.right, newNode);
-        }
-        return root;
-    }
-
-    public void traverseLevelOrder(TreeNode root) {
-        if (root == null) {
-            System.out.println("Tree is empty"+ " ");
-            return;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            TreeNode tempNode = queue.poll();
-            System.out.print(tempNode.value + " ");
-            if (tempNode.left != null) {
-                queue.add(tempNode.left);
-            }
-            if (tempNode.right != null) {
-                queue.add(tempNode.right);
+    public void levelOrderTraverse() {
+        if (root != null) {
+            Queue<BinaryTreeNode> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                BinaryTreeNode currentNode = queue.remove();
+                System.out.println(currentNode.getValue());
+                if (currentNode.getLeftNode() != null) {
+                    queue.add(currentNode.getLeftNode());
+                }
+                if (currentNode.getRightNode() != null) {
+                    queue.add(currentNode.getRightNode());
+                }
             }
         }
-        System.out.println();
     }
 
-    public void traverseInOrder(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        traverseInOrder(root.left);
-        System.out.print(root.value+ " ");
-        traverseInOrder(root.right);
-    }
-
-    public void traversePreOrder(TreeNode root){
-        if (root == null){
-            return;
-        }
-        System.out.print(root.value+ " ");
-        traversePreOrder(root.left);
-        traversePreOrder(root.right);
-    }
-
-    public void traversePostOrder(TreeNode root){
-        if(root == null){
-            return;
-        }
-        traversePostOrder(root.left);
-        traversePostOrder(root.right);
-        System.out.print(root.value+ " ");
-    }
-
-    public boolean search(int value){
-        if (root == null){
-            return false;
-        }
-        else if (root.value == value){
-            return true;
-        }
-        return find(root, value);
-    }
-
-    private boolean find(TreeNode root, int value) {
-        if (root == null){
-            return false;
-        }
-        else if (root.value == value){
-            return true;
-        }
-        if (value<root.value){
-            return find(root.left,value);
-        } else{
-            return find(root.right,value);
+    // Root --> Left --> Right
+    public void preOrderTraversal() {
+        if (root != null) {
+            preOrderTraversalInternal(root);
         }
     }
 
-    public void mirrorOfTree(TreeNode root){
-        if (root == null) {
-            return;
+    private void preOrderTraversalInternal(BinaryTreeNode root) {
+        if (root != null) {
+            System.out.println(root.getValue());
+            preOrderTraversalInternal(root.getLeftNode());
+            preOrderTraversalInternal(root.getRightNode());
         }
-        TreeNode tempNode = root.right;
-        root.right = root.left;
-        root.left = tempNode;
-        mirrorOfTree(root.left);
-        mirrorOfTree(root.right);
+    }
+
+    // Left --> Root --> Right
+    public void inOrderTraversal() {
+        if (root != null) {
+            inOrderTraversalInternal(root);
+        }
+    }
+
+    private void inOrderTraversalInternal(BinaryTreeNode root) {
+        if (root != null) {
+            inOrderTraversalInternal(root.getLeftNode());
+            System.out.println(root.getValue());
+            inOrderTraversalInternal(root.getRightNode());
+        }
+    }
+
+    // Left --> Right --> Root
+    public void postOrderTraversal() {
+        if (root != null) {
+            postOrderTraversalInternal(root);
+        }
+    }
+
+    private void postOrderTraversalInternal(BinaryTreeNode root) {
+        if (root != null) {
+            preOrderTraversalInternal(root.getLeftNode());
+            preOrderTraversalInternal(root.getRightNode());
+            System.out.println(root.getValue());
+        }
+    }
+
+    public boolean search(int value) {
+        if (root != null) {
+            Queue<BinaryTreeNode> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                BinaryTreeNode currentNode = queue.remove();
+                if (currentNode.getValue() == value) {
+                    return true;
+                }
+                if (currentNode.getLeftNode() != null) {
+                    queue.add(currentNode.getLeftNode());
+                }
+                if (currentNode.getRightNode() != null) {
+                    queue.add(currentNode.getRightNode());
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        BinaryTree binaryTree = new BinaryTree();
+        int[] arr = {20, 100, 3, 50, 15, 250, 35, 222};
+        for (int num : arr) {
+            binaryTree.insert(num);
+        }
+
+        System.out.println("--- Level Order ---");
+        binaryTree.levelOrderTraverse();
+
+        System.out.println("--- PreOrder ---");
+        binaryTree.preOrderTraversal();
+
+        System.out.println("--- InOrder ---");
+        binaryTree.inOrderTraversal();
+
+        System.out.println("--- PostOrder ---");
+        binaryTree.postOrderTraversal();
+
+        System.out.println("--- Search ---");
+        boolean searchResult = binaryTree.search(222);
+        System.out.println("Found: " + searchResult);
     }
 }

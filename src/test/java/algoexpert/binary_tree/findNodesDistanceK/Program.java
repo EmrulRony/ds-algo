@@ -30,8 +30,8 @@ public class Program {
         Queue<Map<BinaryTree, Integer>> queue = new LinkedList<>();
         queue.add(Map.of(targetNode, 0));
         ArrayList<Integer> resultNodes = new ArrayList<>();
-        List<Integer> visitedNodes = new ArrayList<>();
         while (!queue.isEmpty()) {
+            List<Integer> visitedNodes = new ArrayList<>();
             Map<BinaryTree, Integer> currentNodeMap = queue.poll();
             Map.Entry<BinaryTree, Integer> entry = currentNodeMap.entrySet().iterator().next();
             BinaryTree currentNode = entry.getKey();

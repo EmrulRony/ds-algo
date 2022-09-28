@@ -12,7 +12,7 @@ public class BinarySearchTree {
             queue.add(root);
             while (!queue.isEmpty()) {
                 TreeNode currentNode = queue.poll();
-                if (value < currentNode.getValue()) {
+                if (value <= currentNode.getValue()) {
                     if (currentNode.getLeftNode() == null) {
                         currentNode.setLeftNode(new TreeNode(value));
                     } else {

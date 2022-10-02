@@ -48,6 +48,38 @@ public class BinarySearchTree {
         }
     }
 
+    public void remove(int value) {
+        removeNode(root, value);
+    }
+
+    private void removeNode(TreeNode root, int value) {
+        if (root == null) {
+            return;
+        }
+        if (root.getValue() == value) {
+            if (root.getLeftNode() == null && root.getRightNode() == null) {
+                root = null;
+            } else if (root.getLeftNode() != null && root.getRightNode() == null) {
+                root = root.getLeftNode();
+            } else if (root.getRightNode() != null && root.getLeftNode() == null) {
+                root = root.getRightNode();
+            } else {
+                TreeNode leastRightMostNode = getLeastRightMostNode(root.getRightNode());
+                root.setValue(leastRightMostNode.getValue());
+                removeNode(root.getRightNode(), leastRightMostNode.getValue());
+            }
+        }
+        removeNode(root.getLeftNode(), value);
+        removeNode(root.getRightNode(), value);
+    }
+
+    private TreeNode getLeastRightMostNode(TreeNode root) {
+        if (root.getLeftNode() != null) {
+            getLeastRightMostNode(root.getLeftNode());
+        }
+        return root;
+    }
+
     // Root --> Left --> Right
     public void preOrderTraversal() {
         if (root != null) {

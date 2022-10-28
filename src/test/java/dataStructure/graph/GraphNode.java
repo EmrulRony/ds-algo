@@ -11,6 +11,19 @@ public class GraphNode implements Comparable<GraphNode>{
     private boolean isVisited;
     private int distance;
     private GraphNode parentNode;
+    private DisjointSet set;
+
+    public void setWeightMap(HashMap<GraphNode, Integer> weightMap) {
+        this.weightMap = weightMap;
+    }
+
+    public DisjointSet getSet() {
+        return set;
+    }
+
+    public void setSet(DisjointSet set) {
+        this.set = set;
+    }
 
     public GraphNode(String name) {
         this.name = name;

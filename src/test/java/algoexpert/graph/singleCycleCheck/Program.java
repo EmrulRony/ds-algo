@@ -22,3 +22,6 @@ public class Program {
     }
 }
 
+// time --> O(n)
+// space --> O(1)
+

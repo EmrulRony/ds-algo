@@ -1,4 +1,4 @@
-package algoexpert.sorting;
+package algoexpert.sorting.bubbleSort;
 
 public class Program {
     public static int[] bubbleSort(int[] array) {

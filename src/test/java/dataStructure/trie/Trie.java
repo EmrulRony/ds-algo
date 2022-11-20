@@ -7,6 +7,8 @@ public class Trie {
         root = new TrieNode();
     }
 
+    // Time complexity --> O(n)
+    // Space complexity --> O(n)
     public void insert(String str) {
         TrieNode currentNode = root;
         for (int i = 0; i < str.length(); i++) {
@@ -21,6 +23,8 @@ public class Trie {
         currentNode.isEndOfTheString = true;
     }
 
+    // Time complexity --> O(n)
+    // Space complexity --> O(1)
     public boolean searchStr(String str) {
         TrieNode currentNode = root;
         for (int i = 0; i < str.length(); i++) {

@@ -33,7 +33,7 @@ public class Program {
                     }
                     currentNode = node;
                 }
-                currentNode.children.put(endSymbol, new TrieNode());
+                currentNode.children.put(endSymbol, null);
             }
         }
 

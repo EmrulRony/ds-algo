@@ -49,5 +49,6 @@ public class Trie {
         System.out.println(trie.searchStr("manchester"));
         System.out.println(trie.searchStr("united"));
         System.out.println(trie.searchStr("man"));
+        System.out.println(trie.searchStr("manchester-cit"));
     }
 }
